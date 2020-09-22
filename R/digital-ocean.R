@@ -315,8 +315,8 @@ do_deploy_api <- function(droplet, path, localPath, port, forward=FALSE,
   analogsea::droplet_ssh(droplet, paste0("mkdir -p ", remoteTmp))
   analogsea::droplet_upload(droplet, local=localPath, remote=remoteTmp)
   analogsea::droplet_ssh(droplet,
-                         paste("mv", paste0(remoteTmp, "/", dirName, "/"),
-                               paste0("/var/plumber/", path)))
+                         paste("mv", paste0(remoteTmp, "/", dirName, "/*"),
+                               paste0("/var/plumber/", path, "/")))
 
   ### SYSTEMD ###
   serviceName <- paste0("plumber-", path)
