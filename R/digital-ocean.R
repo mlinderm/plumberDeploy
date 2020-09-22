@@ -244,8 +244,8 @@ do_configure_https <- function(droplet, domain, email, termsOfService=FALSE, for
   conffile <- tempfile()
   writeLines(conf, conffile)
 
-  analogsea::droplet_ssh(droplet, "add-apt-repository ppa:certbot/certbot")
-  analogsea::debian_apt_get_update(droplet)
+  #analogsea::droplet_ssh(droplet, "add-apt-repository ppa:certbot/certbot")
+  #analogsea::debian_apt_get_update(droplet)
   analogsea::debian_apt_get_install(droplet, "certbot")
   analogsea::droplet_ssh(droplet, "ufw allow https")
   analogsea::droplet_ssh(
